@@ -5,12 +5,12 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        charStack = {}
-        charStack2 = {}
+        sStack = {}
+        tStack = {}
         for c in s:
-            charStack[c] = 1 + charStack.get(c, 0)
+            sStack[c] = 1 + sStack.get(c, 0)
         for c in t:
-            charStack2[c] = 1 + charStack2.get(c, 0)
+            tStack[c] = 1 + tStack.get(c, 0)
 
-        return charStack == charStack2
+        return sStack == tStack
         

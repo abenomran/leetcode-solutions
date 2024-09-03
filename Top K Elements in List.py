@@ -13,8 +13,10 @@ class Solution:
             freq[count].append(num)
         
         res = []
-        for numList in freq[::-1]:
+        for i in range(len(freq) - 1, 0, -1):
+            numList = freq[i]
             for num in numList:
                 res.append(num)
                 if len(res) == k:
                     return res
+

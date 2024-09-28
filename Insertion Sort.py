@@ -1,4 +1,5 @@
 # Easy
+
 from typing import List, Pair
 
 # Definition for a pair.

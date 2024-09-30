@@ -5,21 +5,18 @@ class Solution:
     def combinationSum(self, nums: List[int], target: int) -> List[List[int]]:
         res = []
 
-        if not nums:
-            return res
-
-        def dfs(options, currAdditions, currSum, n, target):
-            if (currSum + n > target):
+        def dfs(i, options, total):
+            if total == target:
+                res.append(options.copy())
+                return
+            if i >= len(nums) or total > target:
                 return
 
-            if (currSum + n == target):
-                res.append(currAdditions + [n])
-                return
-            
-            for i, option in enumerate(options):
-                dfs(options[i:], currAdditions + [n], currSum + n, option, target)
+            options.append(nums[i])
+            dfs(i, options, total + nums[i])
+            options.pop()
+            dfs(i + 1, options, total)
 
-        for i, n in enumerate(nums):
-            dfs(nums[i:], [], 0, n, target)
-            print(res)
+        dfs(0, [], 0)
         return res
+            

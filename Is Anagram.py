@@ -5,12 +5,9 @@ class Solution:
         if len(s) != len(t):
             return False
 
-        sStack = {}
-        tStack = {}
-        for c in s:
-            sStack[c] = 1 + sStack.get(c, 0)
-        for c in t:
-            tStack[c] = 1 + tStack.get(c, 0)
+        sHash, tHash = {}, {}
+        for i in range(len(s)):
+            sHash[s[i]] = 1 + sHash.get(s[i], 0)
+            tHash[t[i]] = 1 + tHash.get(t[i], 0)
 
-        return sStack == tStack
-        
+        return sHash == tHash

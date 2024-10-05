@@ -20,8 +20,6 @@ class MedianFinder:
             heapq.heappush(self.small, val * -1)
 
     def findMedian(self) -> float:
-        print("s" , self.small)
-        print("l" , self.large)
         if len(self.small) > len(self.large):
             return -1 * self.small[0]
         elif len(self.small) < len(self.large):

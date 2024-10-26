@@ -6,9 +6,10 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagrams = defaultdict(list)
         for s in strs:
-            charCount = [0] * 26
+            letters = [0] * 26
             for c in s:
-                charCount[ord(c) - ord('a')] += 1
-            anagrams[tuple(charCount)].append(s)
+                letters[ord(c.lower()) - ord('a')] += 1
+            
+            anagrams[tuple(letters)].append(s)
 
         return anagrams.values()

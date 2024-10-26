@@ -3,10 +3,10 @@ from typing import List
 
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
-        numSet = set()
+        nSet = set()
         for n in nums:
-            if n in numSet:
+            if n in nSet:
                 return True
-            numSet.add(n)
+            nSet.add(n)
 
         return False

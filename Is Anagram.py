@@ -6,8 +6,9 @@ class Solution:
             return False
 
         sHash, tHash = {}, {}
-        for i in range(len(s)):
-            sHash[s[i]] = 1 + sHash.get(s[i], 0)
-            tHash[t[i]] = 1 + tHash.get(t[i], 0)
+        for c in s:
+            sHash[c] = 1 + sHash.get(c, 0)
+        for c in t:
+            tHash[c] = 1 + tHash.get(c, 0)
 
         return sHash == tHash
